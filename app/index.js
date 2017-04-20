@@ -1,5 +1,7 @@
-const React = require('react')
-const ReactDOM = require('react-dom')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
+
 require('./index.css')
 
 var DATA = {
@@ -19,6 +21,12 @@ class Badge extends React.Component {
       </div>
     )
   }
+}
+
+Badge.propTypes = {
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
 }
 
 class Avatar extends React.Component {
@@ -50,10 +58,15 @@ class FriendsContainer extends React.Component {
     return (
       <div>
         <h3>Name: {this.props.data.name} </h3>
-        <ShowList friends={this.props.data.friends} />
+        <ShowList list={this.props.data.friends} />
       </div>
     )
   }
+}
+
+FriendsContainer.propTypes = {
+  name: PropTypes.string.isRequired,
+  list: PropTypes.array.isRequired
 }
 
 class ShowList extends React.Component {
@@ -62,8 +75,8 @@ class ShowList extends React.Component {
       <div>
         <h3>Friends</h3>
         <ul>
-          {this.props.friends.map((friend) => {
-            return <li>{friend}</li>
+          {this.props.list.map((x) => {
+            return <li>{x}</li>
           })}
         </ul>
       </div>
@@ -73,20 +86,20 @@ class ShowList extends React.Component {
 
 class Users extends React.Component {
   render () {
-    const friends = this.props.persons.filter(person => {
-      return person.friend === true
+    const friends = this.props.list.filter(x => {
+      return x.friend === true
     })
 
-    const enemies = this.props.persons.filter(person => {
-      return person.friend === false
+    const enemies = this.props.list.filter(x => {
+      return x.friend === false
     })
 
     return (
       <div>
         <h1>Friends</h1>
         <ul>
-          {friends.map(person => {
-            return <li key={person.name}>{person.name}</li>
+          {friends.map(x => {
+            return <li key={x.name}>{x.name}</li>
           })}
         </ul>
 
@@ -94,8 +107,8 @@ class Users extends React.Component {
 
         <h1> Non Friends </h1>
         <ul>
-          {enemies.map(person => {
-            return <li key={person.name}>{person.name}</li>
+          {enemies.map(x => {
+            return <li key={x.name}>{x.name}</li>
           })}
         </ul>
       </div>
@@ -103,8 +116,15 @@ class Users extends React.Component {
   }
 }
 
+Users.propTypes = {
+  list: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    friend: PropTypes.bool.isRequired
+  }))
+}
+
 ReactDOM.render(
-  <Users persons={[
+  <Users list={[
     { name: 'Tyler', friend: true },
     { name: 'Ryan', friend: true },
     { name: 'Michael', friend: false },

@@ -2,10 +2,23 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 require('./index.css')
 
-var USER_DATA = {
+var DATA = {
   name: 'Octocat Jr',
   img: 'https://avatars1.githubusercontent.com/u/583231?v=3&s=460',
-  username: 'octocat'
+  username: 'octocat',
+  friends: ['Moby Dock', 'Tux Penguin']
+}
+
+class Badge extends React.Component {
+  render () {
+    return (
+      <div>
+        <Avatar img={this.props.user.img} />
+        <Label name={this.props.user.name} />
+        <ScreenName username={this.props.user.username} />
+      </div>
+    )
+  }
 }
 
 class Avatar extends React.Component {
@@ -32,19 +45,33 @@ class ScreenName extends React.Component {
   }
 }
 
-class Badge extends React.Component {
+class FriendsContainer extends React.Component {
   render () {
     return (
       <div>
-        <Avatar img={this.props.user.img} />
-        <Label name={this.props.user.name} />
-        <ScreenName username={this.props.user.username} />
+        <h3>Name: {this.props.data.name} </h3>
+        <ShowList friends={this.props.data.friends} />
+      </div>
+    )
+  }
+}
+
+class ShowList extends React.Component {
+  render () {
+    return (
+      <div>
+        <h3>Friends</h3>
+        <ul>
+          {this.props.friends.map((friend) => {
+            return <li>{friend}</li>
+          })}
+        </ul>
       </div>
     )
   }
 }
 
 ReactDOM.render(
-  <Badge user={USER_DATA} />,
+  <FriendsContainer data={DATA} />,
   document.getElementById('app')
 )

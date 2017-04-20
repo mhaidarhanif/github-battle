@@ -71,7 +71,46 @@ class ShowList extends React.Component {
   }
 }
 
+class Users extends React.Component {
+  render () {
+    const friends = this.props.persons.filter(person => {
+      return person.friend === true
+    })
+
+    const enemies = this.props.persons.filter(person => {
+      return person.friend === false
+    })
+
+    return (
+      <div>
+        <h1>Friends</h1>
+        <ul>
+          {friends.map(person => {
+            return <li key={person.name}>{person.name}</li>
+          })}
+        </ul>
+
+        <hr />
+
+        <h1> Non Friends </h1>
+        <ul>
+          {enemies.map(person => {
+            return <li key={person.name}>{person.name}</li>
+          })}
+        </ul>
+      </div>
+    )
+  }
+}
+
 ReactDOM.render(
-  <FriendsContainer data={DATA} />,
+  <Users persons={[
+    { name: 'Tyler', friend: true },
+    { name: 'Ryan', friend: true },
+    { name: 'Michael', friend: false },
+    { name: 'Mikenzi', friend: false },
+    { name: 'Jessica', friend: true },
+    { name: 'Dan', friend: false } ]}
+  />,
   document.getElementById('app')
 )

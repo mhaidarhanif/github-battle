@@ -1,3 +1,26 @@
 body {
   background: #eee;
+  font-family: Segoe UI, Roboto, Ubuntu, Helvetica Neue, sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.languages {
+  display: flex;
+  justify-content: center;
+  color: #aaa;
+}
+
+.language {
+  list-style: none;
+  margin: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.selected {
+  color: #333;
 }

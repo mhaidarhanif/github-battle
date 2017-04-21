@@ -5,7 +5,7 @@ class Home extends React.Component {
   render () {
     return (
       <div className='container-center'>
-        <h1>GitHub Battle</h1>
+        <h1>Super GitHub Battle</h1>
         <p>See popular repos or battle with your friends.</p>
         <ul>
           <li>

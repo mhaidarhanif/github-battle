@@ -1,6 +1,6 @@
-# GitHub Battle
+# Super GitHub Battle
 
-An app that built through React.js Fundamentals course on [React Training](https://reacttraining.com). This repo contains a better version of each components separation. Written from scratch, so it has some differences with the [original version](https://github.com/ReactTraining/React-Fundamentals).
+A pure React.js app that built through React.js Fundamentals course on [React Training](https://reacttraining.com). This repo contains a better version of each components separation. Written from scratch, so it has some differences with the [original version](https://github.com/ReactTraining/React-Fundamentals). See the deployed one at <https://super-github-battle.firebaseapp.com>.
 
 This app allows us to:
 
@@ -28,6 +28,13 @@ npm start
 # then the page http://localhost:8080 will be opened
 ```
 
+### Deployment
+
+```sh
+npm run firebase-init
+npm run deploy
+```
+
 ## License
 
-MIT
+MIT License

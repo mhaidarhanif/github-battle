@@ -1,12 +1,24 @@
 body {
   background: #eee;
   font-family: Segoe UI, Roboto, Ubuntu, Helvetica Neue, sans-serif;
+  overflow: scroll;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1200px;
 }
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+
+/*----------------------------------------------------------------------------*/
 
 .languages {
   display: flex;
@@ -25,6 +37,9 @@ body {
   color: #333;
 }
 
+
+/*----------------------------------------------------------------------------*/
+
 .popular-list {
   display: flex;
   flex-wrap: wrap;
@@ -36,7 +51,15 @@ body {
   text-align: center;
 }
 
-.popular-rank {}
+.popular-rank {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.avatar {
+  width: 150px;
+  border-radius: 5%;
+}
 
 .space-list-items {
   margin-bottom: 10px;

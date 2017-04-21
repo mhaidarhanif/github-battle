@@ -50,10 +50,12 @@ class Battle extends React.Component {
 
     return (
       <div>
+
         <header>
           <h1>Let's Battle!</h1>
           <h3>Pick two GitHub usernames.</h3>
         </header>
+
         <div className='container-battle'>
           {!playerOne.name &&
             <PlayerInput
@@ -83,6 +85,13 @@ class Battle extends React.Component {
               onReset={this.handleReset}
             />}
         </div>
+
+        {playerOne.image && playerTwo.image &&
+          <Link
+            className='button'
+            to='/battle/results'>
+            Battle!
+          </Link>}
 
       </div>
     )

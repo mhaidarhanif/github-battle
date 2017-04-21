@@ -48,7 +48,7 @@ class PlayerInput extends React.Component {
           className='button'
           type='submit'
           disabled={!this.state.username}>
-          Submit username
+          Submit {this.state.username}
         </button>
       </form>
     )

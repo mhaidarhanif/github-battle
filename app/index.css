@@ -3,6 +3,12 @@ body {
   overflow: scroll;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 h1 {
   margin: 10px 0;
 }
@@ -46,7 +52,7 @@ a.active {
   background: #000;
   border: none;
   font-size: 16px;
-  border-radius: 3px;
+  border-radius: 2px;
   width: 200px;
   text-align: center;
   display: block;
@@ -132,4 +138,19 @@ a.active {
 .container-battle {
   display: flex;
   justify-content: space-around;
+}
+
+.player-form {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  align-items: center;
+}
+
+.player-form input {
+  border-radius: 2px;
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.43);
+  font-size: 16px;
 }

@@ -37,8 +37,10 @@ class Battle extends React.Component {
     const playerTwo = this.state.playerTwo
     return (
       <div>
-        <h1>Let's Battle!</h1>
-        <p>Pick two GitHub usernames.</p>
+        <header>
+          <h1>Let's Battle!</h1>
+          <h3>Pick two GitHub usernames.</h3>
+        </header>
         <div className='container-battle'>
           {!playerOne.name && <PlayerInput id='playerOne' label='Player 1' onSubmit={this.handleSubmit} />}
           {!playerTwo.name && <PlayerInput id='playerTwo' label='Player 2' onSubmit={this.handleSubmit} />}

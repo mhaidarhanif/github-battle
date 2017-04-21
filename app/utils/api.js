@@ -68,7 +68,7 @@ module.exports = {
     return axios
       .all(players
       .map(getUserData))
-      .then(sortPlayerS)
+      .then(sortPlayer)
       .catch(handleError)
   },
 

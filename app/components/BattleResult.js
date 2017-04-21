@@ -24,7 +24,24 @@ class BattleResult extends React.Component {
         players.playerTwo
       ])
       .then((results) => {
-        console.log('results:', results)
+        // console.log('results:', results)
+        if (results === null) {
+          return this.setState(() => {
+            return {
+              error: `Hey there is an error, maybe not both of the users are exist on GitHub.`,
+              loading: false
+            }
+          })
+        } else {
+          return this.setState(() => {
+            return {
+              error: null,
+              winner: results[0],
+              loser: results[1],
+              loading: false
+            }
+          })
+        }
       })
   }
 
@@ -36,8 +53,10 @@ class BattleResult extends React.Component {
 
     if (loading === true) {
       return (<p>Loading...</p>)
+    } else if (error) {
+      return (<div>{error}</div>)
     } else {
-      return (<div>Here are the results.</div>)
+      return (<div>{JSON.stringify(this.state, null, 2)}</div>)
     }
   }
 }

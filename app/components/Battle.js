@@ -1,6 +1,7 @@
 const React = require('react')
 const Link = require('react-router-dom').Link
 const PlayerInput = require('./PlayerInput')
+const PlayerPreview = require('./PlayerPreview')
 
 class Battle extends React.Component {
   constructor (props) {

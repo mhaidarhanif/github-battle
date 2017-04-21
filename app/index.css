@@ -154,3 +154,10 @@ a.active {
   border: 1px solid rgba(0, 0, 0, 0.43);
   font-size: 16px;
 }
+
+.player-profile {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  align-items: center;
+}

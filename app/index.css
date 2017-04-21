@@ -161,3 +161,9 @@ a.active {
   width: 600px;
   align-items: center;
 }
+
+.reset {
+  color: #d0021b;
+  display: block;
+  text-align: center;
+}

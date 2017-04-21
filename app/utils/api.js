@@ -1,12 +1,12 @@
 const axios = require('axios')
 
+const GITHUB_URL = `https://api.github.com`
 const GITHUB_CLIENT_ID = ''
 const GITHUB_CLIENT_SECRET = ''
-const params = `?client_id=${GITHUB_CLIENT_ID}&client_secret=${GITHUB_CLIENT_SECRET}`
-const github_url = `https://api.github.com`
+const GITHUB_PARAMS = `?client_id=${GITHUB_CLIENT_ID}&client_secret=${GITHUB_CLIENT_SECRET}`
 
 const getProfile = (username) => {
-  const url = `${github_url}/users/${username}${params}`
+  const url = `${GITHUB_URL}/users/${username}${GITHUB_PARAMS}`
   // console.log('getProfile:', url)
   return axios
     .get(url)
@@ -16,7 +16,7 @@ const getProfile = (username) => {
 }
 
 const getRepos = (username) => {
-  const url = `${github_url}/users/${username}/repos${params}&per_page=100`
+  const url = `${GITHUB_URL}/users/${username}/repos${GITHUB_PARAMS}&per_page=100`
   // console.log('getRepos:', url)
   return axios
     .get(url)
@@ -26,8 +26,8 @@ const getRepos = (username) => {
 }
 
 const getStarCount = (repos) => {
-  // console.log('getStarCount:', repos)
-  return repos.data.reduce((count, repo) => {
+  // console.log('getStarCount:', repos.length)
+  return repos.reduce(function (count, repo) {
     return count + repo.stargazers_count
   }, 0)
 }
@@ -36,19 +36,22 @@ const calculateScore = (profile, repos) => {
   const followers = profile.followers
   const totalStars = getStarCount(repos)
 
-  return (followers * 3 + totalStars)
+  return (followers * 3) + totalStars
 }
 
 const getUserData = (player) => {
+  // console.log('getUserData:', player)
   return axios
     .all([
       getProfile(player),
       getRepos(player)
     ])
     .then((data) => {
+      const profile = data[0]
+      const repos = data[1]
       return {
-        profile: data[0],
-        score: calculateScore(data[0], data[1])
+        profile: profile,
+        score: calculateScore(profile, repos)
       }
     })
 }

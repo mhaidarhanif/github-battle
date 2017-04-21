@@ -1,6 +1,10 @@
 body {
-  font-family: Segoe UI, Roboto, Ubuntu, Helvetica Neue, sans-serif;
+  font-family: 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif;
   overflow: scroll;
+}
+
+h1 {
+  margin: 10px 0;
 }
 
 ul {
@@ -14,6 +18,10 @@ li {
 a {
   color: #aaa;
   text-decoration: none;
+}
+
+a.active {
+  color: #333;
 }
 
 
@@ -68,10 +76,6 @@ a {
   margin-right: 1em;
   font-size: 2em;
   color: #aaa;
-}
-
-a.active {
-  color: #333;
 }
 
 

@@ -5,6 +5,7 @@ const Route = ReactRouter.Route
 const Navigation = require('./Navigation')
 const Home = require('./Home')
 const Popular = require('./Popular')
+const Battle = require('./Battle')
 
 class App extends React.Component {
   render () {
@@ -14,7 +15,7 @@ class App extends React.Component {
           <Navigation />
           <Route path='' component={Home} />
           <Route path='/popular' component={Popular} />
-          {/* <Route path='/battle' component={Battle} /> */}
+          <Route path='/battle' component={Battle} />
         </div>
       </Router>
     )

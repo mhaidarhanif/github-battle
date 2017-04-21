@@ -5,8 +5,10 @@ const Profile = require('./Profile')
 const Player = (props) => {
   return (
     <div>
-      <h1 className='header'>{props.label}</h1>
-      <h3 className='score'>Score: {props.score}</h3>
+      <header>
+        <h1 className='header'>{props.label}</h1>
+        <h3 className='score'>Score: {props.score}</h3>
+      </header>
       <Profile info={props.profile} />
     </div>
   )

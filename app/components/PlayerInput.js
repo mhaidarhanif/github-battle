@@ -8,6 +8,17 @@ class PlayerInput extends React.Component {
     this.state = {
       username: ''
     }
+
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange (event) {
+    const value = event.target.value
+    this.setState(() => {
+      return {
+        username: value
+      }
+    })
   }
 
   render () {

@@ -2,6 +2,7 @@ const React = require('react')
 const PropTypes = require('prop-types')
 const queryString = require('query-string')
 const api = require('../utils/api')
+const Player = require('./Player')
 
 class BattleResult extends React.Component {
   constructor (props) {
@@ -56,7 +57,20 @@ class BattleResult extends React.Component {
     } else if (error) {
       return (<div>{error}</div>)
     } else {
-      return (<div>{JSON.stringify(this.state, null, 2)}</div>)
+      return (
+        <div className='container-battle'>
+          <Player
+            label='Winner'
+            score={winner.score}
+            profile={winner.profile}
+          />
+          <Player
+            label='Loser'
+            score={loser.score}
+            profile={loser.profile}
+          />
+        </div>
+      )
     }
   }
 }

@@ -1,23 +1,22 @@
 const React = require('react')
 const PropTypes = require('prop-types')
 
-class Language extends React.Component {
-  render () {
-    const languages = ['All', 'JavaScript', 'Ruby', 'Python', 'Go', 'Java', 'CSS']
-
-    return (<ul className='languages'>
+const Language = (props) => {
+  const languages = ['All', 'JavaScript', 'Ruby', 'Python', 'Go', 'Java', 'CSS']
+  return (
+    <ul className='languages'>
       {languages.map((x) => {
         return (
           <li
-            onClick={this.props.onSelect.bind(null, x)}
+            onClick={props.onSelect.bind(null, x)}
             key={x}
-            className={`language ${x === this.props.selectedLanguage ? 'selected' : null}`}>
+            className={`language ${x === props.selectedLanguage ? 'selected' : null}`}>
             {x}
           </li>
         )
       }, this)}
-    </ul>)
-  }
+    </ul>
+  )
 }
 
 Language.propTypes = {

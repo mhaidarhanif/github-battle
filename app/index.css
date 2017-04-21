@@ -1,5 +1,4 @@
 body {
-  background: #eee;
   font-family: Segoe UI, Roboto, Ubuntu, Helvetica Neue, sans-serif;
   overflow: scroll;
 }
@@ -22,14 +21,22 @@ li {
 
 .nav {
   display: flex;
+  justify-content: center;
 }
 
 .nav li {
-  margin-right: 10px;
+  margin-right: 1em;
+  font-size: 2em;
+  color: #aaa;
 }
 
-.active {
-  font-weight: bold;
+.nav a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+a.active {
+  color: #333;
 }
 
 

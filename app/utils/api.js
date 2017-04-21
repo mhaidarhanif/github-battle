@@ -7,7 +7,7 @@ const GITHUB_PARAMS = `?client_id=${GITHUB_CLIENT_ID}&client_secret=${GITHUB_CLI
 
 const getProfile = (username) => {
   const url = `${GITHUB_URL}/users/${username}${GITHUB_PARAMS}`
-  // console.log('getProfile:', url)
+
   return axios
     .get(url)
     .then((user) => {
@@ -17,7 +17,7 @@ const getProfile = (username) => {
 
 const getRepos = (username) => {
   const url = `${GITHUB_URL}/users/${username}/repos${GITHUB_PARAMS}&per_page=100`
-  // console.log('getRepos:', url)
+
   return axios
     .get(url)
     .then((user) => {
@@ -26,7 +26,6 @@ const getRepos = (username) => {
 }
 
 const getStarCount = (repos) => {
-  // console.log('getStarCount:', repos.length)
   return repos.reduce(function (count, repo) {
     return count + repo.stargazers_count
   }, 0)
@@ -40,7 +39,6 @@ const calculateScore = (profile, repos) => {
 }
 
 const getUserData = (player) => {
-  // console.log('getUserData:', player)
   return axios
     .all([
       getProfile(player),

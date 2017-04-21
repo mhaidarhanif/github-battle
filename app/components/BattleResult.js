@@ -2,6 +2,7 @@ const React = require('react')
 const PropTypes = require('prop-types')
 const queryString = require('query-string')
 const api = require('../utils/api')
+const Loading = require('./Loading')
 const Player = require('./Player')
 const Profile = require('./Profile')
 
@@ -53,7 +54,7 @@ class BattleResult extends React.Component {
     const loading = this.state.loading
 
     if (loading === true) {
-      return (<p>Loading...</p>)
+      return (<Loading />)
     } else if (error) {
       return (<div>{error}</div>)
     } else {

@@ -4,7 +4,7 @@ const Link = require('react-router-dom').Link
 class Home extends React.Component {
   render () {
     return (
-      <div className='container-home'>
+      <div className='container-center'>
         <h1>GitHub Battle</h1>
         <p>See popular repos or battle with your friends.</p>
         <ul>

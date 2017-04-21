@@ -15,6 +15,17 @@ class Battle extends React.Component {
         image: ''
       }
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit (id, username) {
+    this.setState(() => {
+      const newState = {}
+      newState[id + '.name'] = username,
+      newState[id + '.image'] = `https://github.com/${username}.png?size=200`
+      return newState
+    })
   }
 
   render () {

@@ -29,10 +29,17 @@ class Battle extends React.Component {
   }
 
   render () {
+    const playerOne = this.state.playerOne
+    const playerTwo = this.state.playerTwo
     return (
-      <div className='container-battle'>
+      <div>
         <h1>Let's Battle!</h1>
         <p>Pick two GitHub usernames.</p>
+        <div className='container-battle'>
+          {!playerOne && <PlayerInput id='playerOne' label='Player 1' onSubmit={this.handleSubmit} />}
+          {!playerTwo && <PlayerInput id='playerTwo' label='Player 2' onSubmit={this.handleSubmit} />}
+        </div>
+
       </div>
     )
   }

@@ -3,6 +3,7 @@ const PropTypes = require('prop-types')
 const queryString = require('query-string')
 const api = require('../utils/api')
 const Player = require('./Player')
+const Profile = require('./Profile')
 
 class BattleResult extends React.Component {
   constructor (props) {

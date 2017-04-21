@@ -22,7 +22,6 @@ const PlayerPreview = (props) => {
 }
 
 PlayerPreview.propTypes = {
-  id: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired
 }

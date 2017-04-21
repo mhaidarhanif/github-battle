@@ -54,7 +54,7 @@ class BattleResult extends React.Component {
     const loading = this.state.loading
 
     if (loading === true) {
-      return (<Loading />)
+      return (<Loading text='Comparing scores' />)
     } else if (error) {
       return (<div>{error}</div>)
     } else {

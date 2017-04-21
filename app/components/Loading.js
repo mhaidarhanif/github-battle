@@ -18,6 +18,25 @@ class Loading extends React.Component {
     }
   }
 
+  componentDidMount () {
+    const stopper = `${this.props.text}...`
+    this.setInterval = window.setInterval(() => {
+      if (this.state.text === stopper) {
+        this.setState(() => {
+          return {
+            text: this.state.text
+          }
+        })
+      } else {
+        this.setState((prevState) => {
+          return {
+            text: `${prevState.text}.`
+          }
+        })
+      }
+    }, 200)
+  }
+
   render () {
     return (
       <p style={styles.content}>{this.state.text}</p>
@@ -30,7 +49,7 @@ Loading.propTypes = {
 }
 
 Loading.defaultProps = {
-  text: 'Loading...'
+  text: 'Loading'
 }
 
 module.exports = Loading

@@ -19,11 +19,11 @@ class Battle extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleReset = this.handleReset.bind(this)
   }
 
   handleSubmit (id, username) {
     this.setState(() => {
-      console.log(username)
       var newState = {}
       newState[id] = {
         name: `${username}`,
@@ -33,9 +33,21 @@ class Battle extends React.Component {
     })
   }
 
+  handleReset (id, username) {
+    this.setState(() => {
+      var newState = {}
+      newState[id] = {
+        name: '',
+        image: ''
+      }
+      return newState
+    })
+  }
+
   render () {
     const playerOne = this.state.playerOne
     const playerTwo = this.state.playerTwo
+
     return (
       <div>
         <header>
@@ -43,8 +55,33 @@ class Battle extends React.Component {
           <h3>Pick two GitHub usernames.</h3>
         </header>
         <div className='container-battle'>
-          {!playerOne.name && <PlayerInput id='playerOne' label='Player 1' onSubmit={this.handleSubmit} />}
-          {!playerTwo.name && <PlayerInput id='playerTwo' label='Player 2' onSubmit={this.handleSubmit} />}
+          {!playerOne.name &&
+            <PlayerInput
+              id='playerOne'
+              label='Player 1'
+              onSubmit={this.handleSubmit}
+            />}
+          {playerOne.name !== '' &&
+            <PlayerPreview
+              id='playerOne'
+              avatar={playerOne.image}
+              username={playerOne.name}
+              onReset={this.handleReset}
+            />}
+
+          {!playerTwo.name &&
+            <PlayerInput
+              id='playerOne'
+              label='Player 2'
+              onSubmit={this.handleSubmit}
+            />}
+          {playerTwo.name !== '' &&
+            <PlayerPreview
+              id='playerTwo'
+              avatar={playerTwo.image}
+              username={playerTwo.name}
+              onReset={this.handleReset}
+            />}
         </div>
 
       </div>

@@ -1,28 +1,38 @@
 const React = require('react')
 const Language = require('./Language')
+const RepoGrid = require('./RepoGrid')
 const api = require('../utils/api')
 
 class Popular extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {selectedLanguage: 'All'}
+    this.state = {
+      selectedLanguage: 'All',
+      repos: null
+    }
     this.updateLanguage = this.updateLanguage.bind(this)
   }
 
   componentDidMount () {
-    api.fetchPopularRepos(this.state.selectedLanguage)
-      .then((repos) => {
-        console.log(repos)
-      })
+    this.updateLanguage(this.state.selectedLanguage)
   }
 
   updateLanguage (lang) {
     this.setState(() => {
       return {
-        selectedLanguage: lang,
+        selectedLanguage: 'All',
         repos: null
       }
     })
+
+    api.fetchPopularRepos(lang)
+      .then(function (repos) {
+        this.setState(() => {
+          return {
+            repos: repos
+          }
+        })
+      }.bind(this))
   }
 
   render () {
@@ -31,7 +41,8 @@ class Popular extends React.Component {
         <Language
           selectedLanguage={this.state.selectedLanguage}
           onSelect={this.updateLanguage}
-      />
+        />
+        <RepoGrid repos={this.state.repos} />
       </div>
     )
   }

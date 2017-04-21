@@ -5,16 +5,17 @@ const Language = (props) => {
   const languages = ['All', 'JavaScript', 'Ruby', 'Python', 'Go', 'Java', 'CSS']
   return (
     <ul className='languages'>
-      {languages.map((x) => {
+      {languages.map((lang) => {
         return (
           <li
-            onClick={props.onSelect.bind(null, x)}
-            key={x}
-            className={`language ${x === props.selectedLanguage ? 'selected' : null}`}>
-            {x}
+            onClick={props.onSelect.bind(null, lang)}
+            key={lang}
+            className={`language ${lang === props.selectedLanguage ? 'selected' : 'unselected'}`}
+          >
+            {lang}
           </li>
         )
-      }, this)}
+      })}
     </ul>
   )
 }

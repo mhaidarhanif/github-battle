@@ -24,6 +24,7 @@ li {
 a {
   color: #aaa;
   text-decoration: none;
+  cursor: pointer;
 }
 
 a.active {
@@ -143,7 +144,7 @@ a.active {
 .player-form {
   display: flex;
   flex-direction: column;
-  width: 800px;
+  width: 400px;
   align-items: center;
 }
 

@@ -15,11 +15,7 @@ const PlayerPreview = (props) => {
             @{props.username}
           </h3>
         </a>
-        <a
-          className='reset'
-          onClick={props.onReset.bind(null, props.id)}>
-          Reset Player
-        </a>
+        {props.children}
       </div>
     </div>
   )
@@ -28,8 +24,7 @@ const PlayerPreview = (props) => {
 PlayerPreview.propTypes = {
   id: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  onReset: PropTypes.func.isRequired
+  username: PropTypes.string.isRequired
 }
 
 module.exports = PlayerPreview

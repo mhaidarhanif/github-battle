@@ -24,3 +24,20 @@ body {
 .selected {
   color: #333;
 }
+
+.popular-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.popular-item {
+  margin: 20px;
+  text-align: center;
+}
+
+.popular-rank {}
+
+.space-list-items {
+  margin-bottom: 10px;
+}

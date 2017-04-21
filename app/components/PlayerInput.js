@@ -10,6 +10,7 @@ class PlayerInput extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange (event) {
@@ -21,9 +22,18 @@ class PlayerInput extends React.Component {
     })
   }
 
+  handleSubmit (event) {
+    event.preventDefault()
+
+    this.props.onSubmit(
+      this.props.id,
+      this.props.username
+    )
+  }
+
   render () {
     return (
-      <form className='player-form'>
+      <form className='player-form' onSubmit={this.handleSubmit}>
         <label className='label-header' htmlFor='username'>
           {this.props.label}
         </label>
@@ -34,6 +44,12 @@ class PlayerInput extends React.Component {
           autoComplete='off'
           value={this.state.username}
           onChange={this.handleChange} />
+        <button
+          className='button'
+          type='submit'
+          disabled={!this.state.username}>
+          Submit username
+        </button>
       </form>
     )
   }

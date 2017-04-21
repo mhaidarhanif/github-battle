@@ -1,5 +1,6 @@
 const React = require('react')
 const Link = require('react-router-dom').Link
+const PlayerInput = require('./PlayerInput')
 
 class Battle extends React.Component {
   constructor (props) {
@@ -36,8 +37,8 @@ class Battle extends React.Component {
         <h1>Let's Battle!</h1>
         <p>Pick two GitHub usernames.</p>
         <div className='container-battle'>
-          {!playerOne && <PlayerInput id='playerOne' label='Player 1' onSubmit={this.handleSubmit} />}
-          {!playerTwo && <PlayerInput id='playerTwo' label='Player 2' onSubmit={this.handleSubmit} />}
+          {!playerOne.name && <PlayerInput id='playerOne' label='Player 1' onSubmit={this.handleSubmit} />}
+          {!playerTwo.name && <PlayerInput id='playerTwo' label='Player 2' onSubmit={this.handleSubmit} />}
         </div>
 
       </div>

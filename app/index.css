@@ -125,3 +125,11 @@ a.active {
 .space-list-items {
   margin-bottom: 10px;
 }
+
+
+/*----------------------------------------------------------------------------*/
+
+.container-battle {
+  display: flex;
+  justify-content: space-around;
+}

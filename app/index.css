@@ -80,7 +80,7 @@ a.active {
 }
 
 .nav li {
-  margin-right: 1em;
+  margin: .5em;
   font-size: 2em;
   color: #aaa;
 }

@@ -7,6 +7,7 @@ const Navigation = require('./Navigation')
 const Home = require('./Home')
 const Popular = require('./Popular')
 const Battle = require('./Battle')
+const BattleResult = require('./BattleResult')
 
 class App extends React.Component {
   render () {
@@ -18,6 +19,7 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/popular' component={Popular} />
             <Route exact path='/battle' component={Battle} />
+            <Route path='/battle/results' component={BattleResult} />
             <Route render={function () {
               return (
                 <div className='container-center'>

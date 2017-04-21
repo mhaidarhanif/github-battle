@@ -15,6 +15,9 @@ class Battle extends React.Component {
       playerTwo: {
         name: '',
         image: ''
+      },
+      match: {
+        url: 'battle'
       }
     }
 
@@ -45,6 +48,7 @@ class Battle extends React.Component {
   }
 
   render () {
+    const match = this.state.match
     const playerOne = this.state.playerOne
     const playerTwo = this.state.playerTwo
 
@@ -89,7 +93,10 @@ class Battle extends React.Component {
         {playerOne.image && playerTwo.image &&
           <Link
             className='button'
-            to='/battle/results'>
+            to={{
+              pathname: `${match.url}/results`,
+              search: `?playerOne=${playerOne.name}&playerTwo=${playerTwo.name}`
+            }}>
             Battle!
           </Link>}
 

@@ -28,7 +28,7 @@ class Popular extends React.Component {
             <li
               onClick={this.updateLanguage.bind(null, x)}
               key={x}
-              className={`language ${x === this.state.selectedLanguage ? 'selected' : 'unselected'}`}>
+              className={`language ${x === this.state.selectedLanguage ? 'selected' : null}`}>
               {x}
             </li>
           )

@@ -1,5 +1,6 @@
 const React = require('react')
 const Language = require('./Language')
+const api = require('../utils/api')
 
 class Popular extends React.Component {
   constructor (props) {
@@ -8,10 +9,18 @@ class Popular extends React.Component {
     this.updateLanguage = this.updateLanguage.bind(this)
   }
 
+  componentDidMount () {
+    api.fetchPopularRepos(this.state.selectedLanguage)
+      .then((repos) => {
+        console.log(repos)
+      })
+  }
+
   updateLanguage (lang) {
     this.setState(() => {
       return {
-        selectedLanguage: lang
+        selectedLanguage: lang,
+        repos: null
       }
     })
   }

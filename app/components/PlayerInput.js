@@ -14,7 +14,7 @@ class PlayerInput extends React.Component {
   }
 
   handleChange (event) {
-    const value = event.target.value
+    var value = event.target.value
     this.setState(() => {
       return {
         username: value
@@ -27,7 +27,7 @@ class PlayerInput extends React.Component {
 
     this.props.onSubmit(
       this.props.id,
-      this.props.username
+      this.state.username
     )
   }
 

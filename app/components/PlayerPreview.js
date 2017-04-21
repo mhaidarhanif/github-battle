@@ -10,9 +10,11 @@ const PlayerPreview = (props) => {
           src={props.avatar}
           alt={`Avatar for ${props.username}`}
         />
-        <h3 className='username'>
-          <a href={`https://github.com${props.username}`}>@{props.username}</a>
-        </h3>
+        <a href={`https://github.com/${props.username}`}>
+          <h3 className='username'>
+            @{props.username}
+          </h3>
+        </a>
         <a
           className='reset'
           onClick={props.onReset.bind(null, props.id)}>

@@ -159,8 +159,12 @@ a.active {
 .player-profile {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 200px;
   align-items: center;
+}
+
+.username {
+  color: #333;
 }
 
 .reset {

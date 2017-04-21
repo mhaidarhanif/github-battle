@@ -7,6 +7,7 @@ const github_url = `https://api.github.com`
 
 const getProfile = (username) => {
   const url = `${github_url}/users/${username}${params}`
+  // console.log('getProfile:', url)
   return axios
     .get(url)
     .then((user) => {
@@ -16,6 +17,7 @@ const getProfile = (username) => {
 
 const getRepos = (username) => {
   const url = `${github_url}/users/${username}/repos${params}&per_page=100`
+  // console.log('getRepos:', url)
   return axios
     .get(url)
     .then((user) => {
@@ -24,6 +26,7 @@ const getRepos = (username) => {
 }
 
 const getStarCount = (repos) => {
+  // console.log('getStarCount:', repos)
   return repos.data.reduce((count, repo) => {
     return count + repo.stargazers_count
   }, 0)
@@ -50,7 +53,7 @@ const getUserData = (player) => {
     })
 }
 
-const sortPlayer = (players) => {
+const sortPlayers = (players) => {
   return players.sort((a, b) => {
     return b.score - a.score
   })
@@ -66,9 +69,8 @@ const handleError = (error) => {
 module.exports = {
   battle: (players) => {
     return axios
-      .all(players
-      .map(getUserData))
-      .then(sortPlayer)
+      .all(players.map(getUserData))
+      .then(sortPlayers)
       .catch(handleError)
   },
 

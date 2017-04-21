@@ -6,13 +6,14 @@ const api = require('../utils/api')
 class BattleResult extends React.Component {
   componentDidMount () {
     const players = queryString.parse(this.props.location.search)
+    console.log('players:', players)
     api
       .battle([
-        players.playerOne.name,
-        players.playerTwo.name
+        players.playerOne,
+        players.playerTwo
       ])
       .then((results) => {
-        console.log(results)
+        console.log('results:', results)
       })
   }
 

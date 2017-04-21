@@ -8,6 +8,10 @@ This app allows us to:
 - see the most popular GitHub repos based on their languages.
 - compare two GitHub account's score.
 
+![Page Popular](screenshots/popular.png)
+
+![Page Battle](screenshots/battle.png)
+
 ## Getting Started
 
 ### Installation

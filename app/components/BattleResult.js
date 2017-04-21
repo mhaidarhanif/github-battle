@@ -19,14 +19,13 @@ class BattleResult extends React.Component {
 
   componentDidMount () {
     const players = queryString.parse(this.props.location.search)
-    console.log('players:', players)
+
     api
       .battle([
         players.playerOne,
         players.playerTwo
       ])
       .then((results) => {
-        // console.log('results:', results)
         if (results === null) {
           return this.setState(() => {
             return {
